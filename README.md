@@ -1,22 +1,31 @@
-# clojask-examples
+## Clojask Examples
 
-A Clojure library designed to ... well, that part is up to you.
+Some commonly used examples for Clojure parallel large dataframe [Clojask](https://github.com/clojure-finance/clojask)
 
-## Usage
+### Usage
 
-FIXME
+The example codes are stored in `src/clojask_examples`.
 
-## License
+Change the value of `:main` in `project.clj` to the corresponding namespace of the example you want to run.
 
-Copyright © 2021 FIXME
+Run the example using 
 
-This program and the accompanying materials are made available under the
-terms of the Eclipse Public License 2.0 which is available at
-http://www.eclipse.org/legal/epl-2.0.
+```bash
+lein run
+```
 
-This Source Code may also be made available under the following Secondary
-Licenses when the conditions for such availability set forth in the Eclipse
-Public License, v. 2.0 are satisfied: GNU General Public License as published by
-the Free Software Foundation, either version 2 of the License, or (at your
-option) any later version, with the GNU Classpath Exception which is available
-at https://www.gnu.org/software/classpath/license.html.
+### List of Examples
+
+- [Ordinary join](https://github.com/clojure-finance/clojask-examples/blob/main/src/clojask_examples/ordinary_join.clj)
+
+  Normal inner join, left join and right join. Note that outter joins are not supported in ***Clojask***.
+
+- [Rolling join](https://github.com/clojure-finance/clojask-examples/blob/main/src/clojask_examples/rolling_join.clj)
+
+  Forward and backward rolling join with thresholds
+
+- [Timezone](https://github.com/clojure-finance/clojask-examples/blob/main/src/clojask_examples/timezone.clj)
+
+  How to define parsers and formatters for fields of type zoned datetime
+
+  
