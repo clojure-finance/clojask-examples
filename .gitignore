@@ -15,3 +15,5 @@ pom.xml.asc
 .DS_Store
 onyx.log
 .clj-kondo/
+/resources/output.csv
+_clojask/
