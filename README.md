@@ -16,7 +16,7 @@ lein run
 
 ### List of Examples
 
-- [Basic Tutorial](https://github.com/clojure-finance/clojask-examples/blob/main/src/clojask_examples/basic_tutorial.clj)
+- [Basic tutorial](https://github.com/clojure-finance/clojask-examples/blob/main/src/clojask_examples/basic_tutorial.clj)
 
   Cover the basic APIs in the Clojask library.
 
