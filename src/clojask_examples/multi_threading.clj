@@ -1,4 +1,4 @@
-(ns clojask-examples.basic-tutorial
+(ns clojask-examples.multi-threading
     (:require [clojask.dataframe :as clojask]
               [clojure.core.async :as async]))
   
@@ -11,5 +11,5 @@
     (async/thread (clojask/set-type x "Salary" "double"))
     (async/thread (clojask/set-type y "WorkLeave" "double"))
 
-    (clojask/left-join x y ["Employee"] ["Employee"] 4 "resources/test.csv" :exception false)
+    (compute (clojask/left-join x y ["Employee"] ["Employee"]) 8 "resources/output.csv" :exception false)
     )
