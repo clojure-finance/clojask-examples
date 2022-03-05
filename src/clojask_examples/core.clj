@@ -1,5 +1,5 @@
 (ns clojask-examples.core
-  (:require [clojask.dataframe :as ck]
+  (:require [clojask.dataframe :as cj]
             [clojure.core.async :as async]
             [clojask-examples.timezone :as tz]))
 

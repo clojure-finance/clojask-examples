@@ -7,5 +7,5 @@
                  [com.github.clojure-finance/clojask "1.2.0"]
                  [org.clojure/core.async "0.4.500"]]
   :main ^:skip-aot clojask-examples.core/foo
-  :repl-options {:init-ns clojask-examples.core
+  :repl-options {:init-ns clojask-examples.core  ;; change the example you want to run here
                  :timeout 180000})

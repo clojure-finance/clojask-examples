@@ -1,8 +1,10 @@
-(ns examples.reshape
+(ns clojask_examples.enhanced-reshape
   (:require [clojask.dataframe :as cj]
             [clojask.extensions.reshape :refer [melt dcast]]
             [clojask.extensions.bind :refer [rbind-csv]]))
 
+;; find more explicit explanation here
+;; https://cran.r-project.org/web/packages/data.table/vignettes/datatable-reshape.html#enhanced-new-functionality
 (defn main
   []
   ;; enhanced melt
