@@ -1,5 +1,5 @@
 (ns clojask-examples.timezone
-  (:require [clojask.dataframe :as cj])
+  (:require [clojask.dataframe :as ck])
   (:import (java.time ZoneId)
            (java.time LocalDateTime)
            (java.time.format DateTimeFormatter)))
@@ -28,5 +28,5 @@
 
 (defn main
   []
-  (def df (cj/dataframe "resources/sales.csv"))
+  (def df (ck/dataframe "resources/sales.csv"))
   )

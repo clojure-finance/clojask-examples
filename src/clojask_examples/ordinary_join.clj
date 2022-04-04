@@ -1,9 +1,10 @@
-(ns clojask-examples.ordinary-join)
+(ns clojask-examples.ordinary-join
+  (:require [clojask.dataframe :as ck]))
 ;; Content Below
 (defn main
     []
-    (def x (clojask/dataframe "resources/employees.csv"))
-    (def y (clojask/dataframe "resources/employees-workleave.csv"))
+    (def x (ck/dataframe "resources/employees.csv"))
+    (def y (ck/dataframe "resources/employees-workleave.csv"))
 
-    (compute (clojask/left-join x y ["Employee"] ["Employee"] 8) "resources/output.csv" :exception false)
+    (ck/compute (ck/left-join x y ["Employee"] ["Employee"] 8) "resources/output.csv" :exception false)
     )
