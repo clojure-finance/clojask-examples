@@ -16,24 +16,26 @@ lein run
 
 ### List of Examples
 
-- [Basic tutorial](https://github.com/clojure-finance/clojask-examples/blob/main/src/clojask_examples/basic_tutorial.clj)
+- [Basic tutorial](src/clojask_examples/basic_tutorial.clj)
 
   Cover the basic APIs in the Clojask library.
 
-- [Multi-threading](https://github.com/clojure-finance/clojask-examples/blob/main/src/clojask_examples/multi-threading.clj)
+- [Join](src/clojask_examples/ordinary_join.clj)
 
-  Creating separate threads for operations.
+  Natural inner join, left join and right join.
 
-- [Ordinary join](https://github.com/clojure-finance/clojask-examples/blob/main/src/clojask_examples/ordinary_join.clj)
+- [Rolling join](src/clojask_examples/rolling_join.clj)
 
-  Normal inner join, left join and right join. Note that outter joins are not supported in ***Clojask***.
+  Forward and backward rolling join with thresholds. See the definition [here](https://www.r-bloggers.com/2016/06/understanding-data-table-rolling-joins/).
 
-- [Rolling join](https://github.com/clojure-finance/clojask-examples/blob/main/src/clojask_examples/rolling_join.clj)
+- [Enhanced reshape](src/clojask_examples/enhanced_reshape.clj)
 
-  Forward and backward rolling join with thresholds.
+  Cbind, rbind, melt and dcast. See the [definition](https://cran.r-project.org/web/packages/data.table/vignettes/datatable-reshape.html#enhanced-new-functionality) of them in R.
+
+​	**Coming Soon**
 
 - [Timezone](https://github.com/clojure-finance/clojask-examples/blob/main/src/clojask_examples/timezone.clj)
 
   How to define parsers and formatters for fields of type zoned datetime.
 
-  
+- Outer join
