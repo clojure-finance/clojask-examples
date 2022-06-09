@@ -28,7 +28,7 @@ lein run
 
   Forward and backward rolling join with thresholds. See the definition [here](https://www.r-bloggers.com/2016/06/understanding-data-table-rolling-joins/).
 
-- [Enhanced reshape](src/clojask_examples_enhanced_reshape.clj)
+- [Enhanced reshape](src/clojask_examples/enhanced_reshape.clj)
 
   Cbind, rbind, melt and dcast. See the [definition](https://cran.r-project.org/web/packages/data.table/vignettes/datatable-reshape.html#enhanced-new-functionality) of them in R.
 
