@@ -36,4 +36,7 @@ lein run
 
   How to define parsers and formatters for fields of zoned datetime.
 
-- Outer join
+- [Outer join](https://github.com/clojure-finance/clojask-examples/blob/main/src/clojask_examples/outer_join.clj)
+
+  How to do Outer Join / Cartesian Product.
+
