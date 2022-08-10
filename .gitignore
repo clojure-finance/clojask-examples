@@ -17,3 +17,4 @@ onyx.log
 .clj-kondo/
 /resources/output.csv
 _clojask/
+outputs/*

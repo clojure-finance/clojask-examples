@@ -1,6 +1,6 @@
 ## Clojask Examples
 
-Some commonly used examples for Clojure parallel large dataframe [Clojask](https://github.com/clojure-finance/clojask)
+Some commonly used examples for Clojure parallel data processing framework [Clojask](https://github.com/clojure-finance/clojask).
 
 ### Usage
 
@@ -32,10 +32,11 @@ lein run
 
   Cbind, rbind, melt and dcast. See the [definition](https://cran.r-project.org/web/packages/data.table/vignettes/datatable-reshape.html#enhanced-new-functionality) of them in R.
 
-​	**Coming Soon**
-
 - [Timezone](https://github.com/clojure-finance/clojask-examples/blob/main/src/clojask_examples/timezone.clj)
 
-  How to define parsers and formatters for fields of type zoned datetime.
+  How to define parsers and formatters for fields of zoned datetime.
 
-- Outer join
+- [Outer join](https://github.com/clojure-finance/clojask-examples/blob/main/src/clojask_examples/outer_join.clj)
+
+  How to do Outer Join / Cartesian Product.
+
