@@ -1,9 +1,10 @@
 (ns clojask-examples.core
   (:require [clojask.dataframe :as ck]
-            [clojure.core.async :as async]
-            [clojask-examples.timezone :as tz]))
+            [clojask-io.input :as input]
+            [clojask-io.output :as output]
+            [clojask.api.aggregate :as agg]
+            [clojask.api.gb-aggregate :as gb-agg]))
 
-(defn foo
-  "I don't do a whole lot."
-  [x]
-  (println x "Hello, World!"))
+(defn -main
+  []
+  (println "This namespace is reserved for lein REPL."))

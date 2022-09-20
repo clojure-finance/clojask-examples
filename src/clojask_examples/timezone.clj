@@ -38,7 +38,7 @@
   )
 
 ;; Content Below
-(defn main
+(defn -main
   []
   (def df (ck/dataframe "resources/sales.csv"))
   (ck/operate df get-utc-time "datetime" "utc-time")

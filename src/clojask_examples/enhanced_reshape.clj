@@ -5,7 +5,7 @@
 ;; Content Below
 ;; find more explicit explanation here
 ;; https://cran.r-project.org/web/packages/data.table/vignettes/datatable-reshape.html#enhanced-new-functionality
-(defn main
+(defn -main
   []
   ;; enhanced melt
   (def x (ck/dataframe "resources/melt.csv"))

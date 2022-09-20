@@ -3,7 +3,7 @@
               [clojask-io.input :refer [read-file]]))
   
 ;; Content Below
-  (defn main
+  (defn -main
     []
     ;; The simple way
     (def df (ck/dataframe "resources/employees.csv"))

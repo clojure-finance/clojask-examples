@@ -2,7 +2,7 @@
   (:require [clojask.dataframe :as ck]))
 
 ;; Content Below
-(defn main
+(defn -main
   []
   (def x (ck/dataframe "resources/employees.csv"))
   (def y (ck/dataframe "resources/employees-workleave.csv"))
