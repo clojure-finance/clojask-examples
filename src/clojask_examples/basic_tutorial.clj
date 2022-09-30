@@ -24,7 +24,7 @@
         (ck/compute 8 "outputs/basic3.csv"))
     
     ;; or use the clojask-io plugin
-    (-> (ck/dataframe (read-file "resources/cats.tsv" :sep "\t" :stat true :output true))
+    (-> (ck/dataframe (fn [] (read-file "resources/cats.tsv" :sep "\t" :stat true :output true)))
         (ck/set-type "Weight(kg)" "double")
         (ck/filter "Weight(kg)" (fn [weight] (<= weight 5)))
         (ck/compute 8 "outputs/basic4.tsv"))
