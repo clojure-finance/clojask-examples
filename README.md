@@ -33,7 +33,7 @@ lein run
 
   For datasets that are smaller than memory, you can store the result in memory and reuse it faster. This function is also necessary to read and write excel files.
 
-- [Connect with `tech.ml.dataset`](src/clojask_examples/techmldataset.clj)
+- [Connection with `tech.ml.dataset`](src/clojask_examples/techmldataset.clj)
 
   Convert from and to the popular Clojure DataFrame library `tech.ml.dataset`.
 
