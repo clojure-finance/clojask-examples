@@ -1,7 +1,6 @@
 (ns clojask-examples.in-memory
   (:require [clojask.dataframe :as ck]
             [clojask-io.input :as input]
-            [clojask-io.output :as output]
             [clojask.api.aggregate :as agg]
             [clojask.api.gb-aggregate :as gb-agg])
   (:import (java.util Date)))
@@ -10,10 +9,10 @@
   [start end]
   (/ (- (.getTime end) (.getTime start)) 60000))
 
-;; compute picks the writer from the output file's extension, but cannot
-;; write Excel files. So compute in memory (output path nil), which returns
-;; the rows (header first) as formatted strings, and write them with
-;; clojask-io's write-excel.
+;; With output path nil, compute keeps the result in memory and returns the
+;; rows (header first) as formatted strings, which can feed another
+;; dataframe. The last compute writes an Excel file: compute picks the
+;; output format from the file's extension.
 
 ;; Content Below
 (defn -main
@@ -31,5 +30,4 @@
     ;; reinitialize df
     (def df (ck/dataframe (fn [] (input/read-excel "resources/course timetable.xlsx" "Sheet1" :stat true))))
     (def join-df (ck/right-join df res-df groupby-key groupby-key))
-    (def res2 (ck/compute join-df 8 nil :select ["1_COURSE CODE" "1_TERM" "1_START DATE" "1_END DATE" "1_START TIME" "1_END TIME" "2_MINS/WEEK"]))
-    (output/write-excel "outputs/in-mem.xlsx" "Sheet1" res2)))
+    (ck/compute join-df 8 "outputs/in-mem.xlsx" :select ["1_COURSE CODE" "1_TERM" "1_START DATE" "1_END DATE" "1_START TIME" "1_END TIME" "2_MINS/WEEK"])))

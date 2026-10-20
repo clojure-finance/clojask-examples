@@ -4,7 +4,7 @@
   :license {:name "EPL-2.0 OR GPL-2.0-or-later WITH Classpath-exception-2.0"
             :url "https://www.eclipse.org/legal/epl-2.0/"}
   :dependencies [[org.clojure/clojure "1.12.6"]
-                 [com.github.clojure-finance/clojask "2.1.1"]
+                 [com.github.clojure-finance/clojask "2.1.2"]
                  [com.github.clojure-finance/clojask-io "1.0.8"]
                  [techascent/tech.ml.dataset "6.103"]]
   :main ^:skip-aot clojask-examples.basic-tutorial/-main ;; change the example you want to run here
