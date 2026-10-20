@@ -88,6 +88,12 @@
       (is (= long-form
              (set (map #(vector (get % "family_id1") (get % "child1") (get % "dob") (get % "gender"))
                        (as-maps "outputs/melt_result.csv")))))))
+  (testing "rbind stacks the two halves back into resources/dcast.csv"
+    (let [[header & rows] (read-rows "resources/dcast.csv")
+          [rb-header & rb-rows] (read-rows "outputs/rbind_result.csv")]
+      (is (= header rb-header))
+      (is (= (concat (filter #(= "1" (nth % 2)) rows) (remove #(= "1" (nth % 2)) rows))
+             rb-rows))))
   (testing "dcast matches the wide form in resources/melt.csv"
     (let [wide (set (map #(mapv % ["family_id" "dob_child1" "dob_child2" "dob_child3"
                                    "gender_child1" "gender_child2" "gender_child3"])

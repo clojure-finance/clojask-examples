@@ -25,6 +25,16 @@
   ;; skipped
   (ck/compute z 8 "outputs/melt_result.csv" :select ["family_id1" "age_mother1" "child1" "dob" "gender"])
 
+  ;; rbind: stack csv files that have the same columns; the header comes
+  ;; from the first file. Split the long table by child, then stack it back.
+  (def first-child (ck/dataframe "resources/dcast.csv"))
+  (ck/filter first-child "child" #(= % "1"))
+  (ck/compute first-child 8 "outputs/first_child.csv")
+  (def other-children (ck/dataframe "resources/dcast.csv"))
+  (ck/filter other-children "child" #(not= % "1"))
+  (ck/compute other-children 8 "outputs/other_children.csv")
+  (ck/compute (rbind-csv "outputs/first_child.csv" "outputs/other_children.csv") 8 "outputs/rbind_result.csv")
+
   ;; enhanced dcast
   (def a (ck/dataframe "resources/dcast.csv"))
   (def dob (dcast a "outputs/1.csv" ["family_id" "age_mother"] "child" "dob" ["1" "2" "3"] :vals-name ["child1" "child2" "child3"]))
