@@ -51,11 +51,11 @@ lein test
 
   Cbind, rbind, melt and dcast. See the [definition](https://cran.r-project.org/web/packages/data.table/vignettes/datatable-reshape.html#enhanced-new-functionality) of them in R.
 
-- [Timezone](https://github.com/clojure-finance/clojask-examples/blob/main/src/clojask_examples/timezone.clj)
+- [Timezone](src/clojask_examples/timezone.clj)
 
   How to define parsers and formatters for fields of zoned datetime.
 
-- [Outer Join](https://github.com/clojure-finance/clojask-examples/blob/main/src/clojask_examples/outer_join.clj)
+- [Outer Join](src/clojask_examples/outer_join.clj)
 
-  How to do Outer Join / Cartesian Product.
+  Full outer join: keeps the rows of both dataframes, matched or not.
 
