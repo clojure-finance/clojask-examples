@@ -10,9 +10,10 @@
   [start end]
   (/ (- (.getTime end) (.getTime start)) 60000))
 
-;; todo
-;; output function automatic
-;; format option for in memory
+;; compute picks the writer from the output file's extension, but cannot
+;; write Excel files. So compute in memory (output path nil), which returns
+;; the rows (header first) as formatted strings, and write them with
+;; clojask-io's write-excel.
 
 ;; Content Below
 (defn -main
@@ -25,7 +26,7 @@
   (let [groupby-key ["COURSE CODE" "CLASS SECTION" "START DATE"]]
     (ck/group-by df groupby-key)
     (ck/aggregate df #(reduce + %) "diff" "MINS/WEEK")
-    (def res (ck/compute df 8 nil :order true))
+    (def res (ck/compute df 8 nil))
     (def res-df (ck/dataframe (fn [] res)))
     ;; reinitialize df
     (def df (ck/dataframe (fn [] (input/read-excel "resources/course timetable.xlsx" "Sheet1" :stat true))))

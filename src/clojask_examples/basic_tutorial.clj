@@ -11,10 +11,8 @@
   (ck/set-type df "Salary" "double")
   (ck/filter df "Salary" (fn [salary] (<= salary 800)))
   (ck/operate df (fn [salary] (* salary 1.2)) "Salary")
+  ;; the output keeps the input's row order
   (ck/compute df 8 "outputs/basic.csv")
-
-  ;; outputs keep the input order; since clojask 2.1.0 :order is accepted but ignored
-  (ck/compute df 8 "outputs/basic2.csv" :order true)
 
   ;; Using the `->` macro:
   ;; tsv dataset
