@@ -12,6 +12,7 @@
             [clojask-examples.timezone :as timezone]
             [clojask-examples.in-memory :as in-memory]
             [clojask-examples.techmldataset :as tmd]
+            [clojask-io.input :as input]
             [tech.v3.dataset :as ds]))
 
 (defn- read-rows
@@ -113,7 +114,13 @@
 
 (deftest in-memory
   (run-example in-memory/-main)
-  (is (pos? (.length (io/file "outputs/in-mem.xlsx")))))
+  (let [[header & rows] (:data (input/read-excel "outputs/in-mem.xlsx" "Sheet1"))]
+    (is (= ["1_COURSE CODE" "1_TERM" "1_START DATE" "1_END DATE" "1_START TIME" "1_END TIME" "2_MINS/WEEK"]
+           (vec header)))
+    (is (= 98 (count rows)))
+    (testing "MINS/WEEK sums the Thursday class minutes"
+      (is (= ["DENT2005FY" "09:00" "17:20" "500"]
+             (mapv (vec (first rows)) [0 4 5 6]))))))
 
 (deftest techmldataset
   (run-example tmd/-main)

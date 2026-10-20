@@ -37,7 +37,7 @@ lein test
 
 - [Store Results in memory](src/clojask_examples/in_memory.clj)
 
-  For datasets that are smaller than memory, you can store the result in memory and reuse it faster. This function is also necessary to read and write excel files.
+  For datasets that are smaller than memory, you can store the result in memory and reuse it faster. Also shows reading an Excel file with clojask-io's `read-excel` and writing the result to an `.xlsx` file straight from `compute`.
 
 - [Connection with `tech.ml.dataset`](src/clojask_examples/techmldataset.clj)
 

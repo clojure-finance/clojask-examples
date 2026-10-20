@@ -1,9 +1,6 @@
 (ns clojask-examples.in-memory
   (:require [clojask.dataframe :as ck]
-            [clojask-io.input :as input]
-            [clojask.api.aggregate :as agg]
-            [clojask.api.gb-aggregate :as gb-agg])
-  (:import (java.util Date)))
+            [clojask-io.input :as input]))
 
 (defn time-diff
   [start end]
