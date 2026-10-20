@@ -1,4 +1,4 @@
-(ns clojask_examples.enhanced-reshape
+(ns clojask-examples.enhanced-reshape
   (:require [clojask.dataframe :as ck]
             [clojask.extensions.reshape :refer [melt dcast]]
             [clojask.extensions.bind :refer [rbind-csv cbind-csv]]))
@@ -16,10 +16,10 @@
   (melt x "outputs/1.csv" ["family_id" "age_mother"] ["child1" "child2" "child3"] :measure-name "child" :value-name "dob")
   ;; x and y are from the same source
   (def y (ck/dataframe "resources/melt.csv"))
-  (ck/rename-col x "gender_child1" "child1")
-  (ck/rename-col x "gender_child2" "child2")
-  (ck/rename-col x "gender_child3" "child3")
-  (melt x "outputs/2.csv" ["family_id" "age_mother"] ["child1" "child2" "child3"] :measure-name "child" :value-name "gender")
+  (ck/rename-col y "gender_child1" "child1")
+  (ck/rename-col y "gender_child2" "child2")
+  (ck/rename-col y "gender_child3" "child3")
+  (melt y "outputs/2.csv" ["family_id" "age_mother"] ["child1" "child2" "child3"] :measure-name "child" :value-name "gender")
   (def z (cbind-csv "outputs/1.csv" "outputs/2.csv"))
   ;; you can rename the column names of z here
   ;; skipped

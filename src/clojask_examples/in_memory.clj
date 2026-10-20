@@ -10,7 +10,6 @@
   [start end]
   (/ (- (.getTime end) (.getTime start)) 60000))
 
-
 ;; todo
 ;; output function automatic
 ;; format option for in memory
@@ -32,6 +31,4 @@
     (def df (ck/dataframe (fn [] (input/read-excel "resources/course timetable.xlsx" "Sheet1" :stat true))))
     (def join-df (ck/right-join df res-df groupby-key groupby-key))
     (def res2 (ck/compute join-df 8 nil :select ["1_COURSE CODE" "1_TERM" "1_START DATE" "1_END DATE" "1_START TIME" "1_END TIME" "2_MINS/WEEK"]))
-    (output/write-excel "outputs/in-mem.xls" "Sheet1" res2)
-    )
-  )
+    (output/write-excel "outputs/in-mem.xlsx" "Sheet1" res2)))

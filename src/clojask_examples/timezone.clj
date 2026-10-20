@@ -2,7 +2,9 @@
   (:require [clojask.dataframe :as ck]
             [clojure.string :as str])
   (:import [java.util TimeZone]
-           [java.text SimpleDateFormat]))
+           [java.text SimpleDateFormat]
+           [java.time ZoneOffset]
+           [java.time.format DateTimeFormatter]))
 
 (def string-zone
   {"UTC" "UTC"
@@ -25,17 +27,15 @@
 
 (defn get-timezone
   [time-string]
-  (let [timezone (subs time-string (inc (str/last-index-of time-string " ")))
-        ]
-    timezone)
-  )
-(def utc-format (SimpleDateFormat. "yyyy-MM-dd HH:mm:ss"))
-(.setTimeZone utc-format (TimeZone/getTimeZone "UTC"))
+  (let [timezone (subs time-string (inc (str/last-index-of time-string " ")))]
+    timezone))
+;; formatters run on several worker threads at once, so this one must be
+;; thread-safe: DateTimeFormatter is, a shared SimpleDateFormat is not
+(def utc-format (.withZone (DateTimeFormatter/ofPattern "yyyy-MM-dd HH:mm:ss") ZoneOffset/UTC))
 (defn utctime-formatter
-  "the input is a vector, return is a format string"
+  "the input is a java.util.Date, return is a format string"
   [utc-time]
-  (.format utc-format utc-time)
-  )
+  (.format utc-format (.toInstant utc-time)))
 
 ;; Content Below
 (defn -main
@@ -48,5 +48,4 @@
   (ck/compute df 8 "outputs/timezone1.csv")
   (ck/set-type df "sold" "int")
   (ck/aggregate df #(reduce + %) "sold")
-  (ck/compute df 8 "outputs/timezone2.csv")
-  )
+  (ck/compute df 8 "outputs/timezone2.csv"))
