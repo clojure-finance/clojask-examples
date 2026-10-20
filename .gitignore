@@ -19,3 +19,4 @@ onyx.log
 _clojask/
 .clojask/
 outputs/*
+!outputs/.gitkeep

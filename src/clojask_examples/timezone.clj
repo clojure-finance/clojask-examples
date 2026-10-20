@@ -47,5 +47,5 @@
   (ck/group-by df "utc-time")
   (ck/compute df 8 "outputs/timezone1.csv")
   (ck/set-type df "sold" "int")
-  (ck/aggregate df #(reduce + %) "sold")
+  (ck/aggregate df #(reduce + %) "sold" "sum(sold)")
   (ck/compute df 8 "outputs/timezone2.csv"))

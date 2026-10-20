@@ -12,7 +12,10 @@
   (ck/set-type df "Salary" "int")
   (ck/group-by df "Department")
   (ck/aggregate df gb-agg/max "UpdateDate")
-  (ck/aggregate df #(reduce + %) "Salary") ;; can aggregate on multiple columns in a group
+  ;; can aggregate on multiple columns in a group; the last argument names the
+  ;; output column (the default name comes from the function, which for an
+  ;; anonymous function is something like _main$fn__2093(Salary))
+  (ck/aggregate df #(reduce + %) "Salary" "sum(Salary)")
   (ck/compute df 8 "outputs/gb-agg.csv")
 
   ;; direct aggregate
@@ -21,5 +24,4 @@
   (ck/set-type df "Salary" "int")
   (ck/aggregate df agg/max "UpdateDate")
   (ck/aggregate df agg/min "UpdateDate") ;; can aggregate on multiple columns
-  (ck/compute df 8 "outputs/agg.csv")
-  )
+  (ck/compute df 8 "outputs/agg.csv"))

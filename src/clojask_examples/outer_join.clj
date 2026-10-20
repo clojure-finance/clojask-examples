@@ -10,4 +10,6 @@
   (ck/set-type y "Employee" "int")
   (def z (ck/outer-join x y ["Employee"] ["Employee"]))
   (ck/print-df z)
-  (ck/compute z 8 "outputs/outer-join.csv" :exclude ["2_Employee" "2_EmployeeName"]))
+  ;; rows found only in y have empty 1_ columns, so keep the 2_ key columns:
+  ;; for those rows 2_Employee is the only place their Employee appears
+  (ck/compute z 8 "outputs/outer-join.csv"))

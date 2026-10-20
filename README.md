@@ -14,6 +14,12 @@ Run the example using
 lein run
 ```
 
+To run every example and check its outputs, use
+
+```bash
+lein test
+```
+
 ### List of Examples
 
 - [Basic tutorial](src/clojask_examples/basic_tutorial.clj)
